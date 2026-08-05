@@ -1,0 +1,82 @@
+body {
+    background-color: black;
+}
+
+header {
+    display: flex;
+    color: white;
+    vertical-align: middle;
+}
+
+table {
+    border: solid, rgb(0, 0, 0), 3px;
+    margin: 5px;
+    display: block;
+
+}
+
+thead {
+    border: solid, rgb(0, 0, 0), 1px;
+}
+
+th{
+    font-size: larger;
+    border: solid, rgb(0, 0, 0), 1px;
+    background-color: black;
+    color: white;
+}
+
+td {
+    font-size: large;
+    border: solid, rgb(0, 0, 0), 1px;
+}
+
+tr {
+    border: solid, rgb(0, 0, 0), 1px;
+}
+
+.category {
+    margin: 5px;
+}
+
+section {
+    display:block;
+    padding: 20px;
+    padding-bottom: 100px;
+    background-color: rgba(240, 248, 255, 0.75);
+    gap: 5px;
+    border-radius: 5px;
+}
+
+.actions{
+    padding: 5px;
+}
+
+.input-group {
+    display: flex;
+}
+
+.btn {
+    padding: 3px;
+    background-color: aquamarine;
+    border: solid, rgb(0, 0, 0), 4px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.student-table {
+    display: block;
+    background-color: aqua;
+    border: solid, rgb(0, 0, 0), 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.teacher-table {
+    background-color: aqua;
+    border: solid, rgb(0, 0, 0), 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
