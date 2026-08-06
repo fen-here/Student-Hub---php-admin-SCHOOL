@@ -38,29 +38,27 @@ require '../src/db.php';
                     <i>Student Details</i>
                     <i class="fas fa-user"></i>
                     <div class="input-group">
-                        <input type="text" name="fName" placeholder="First Name" required>
+                        <input type="text" name="fName" id="fname" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="mName" placeholder="Middle Name" required>
-                        <label for="mname">Middle Name</label>
-                        <input type="text" name="lName" placeholder="Last Name" required>
+                        <input type="text" name="lName" id="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="text" name="age" placeholder="Age" required>
+                            <input type="text" name="age" id="age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="text" name="Grade" placeholder="Grade" required>
+                            <input type="text" name="grade" id="grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
                     <div class="input-group">
-                            <input type="text" name="email" placeholder="Email" required>
+                            <input type="text" name="email" id="email" placeholder="Email" required>
                             <label for="email">Email</label>
-                            <input type="password" name="password" placeholder="Password" required>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
                             <label for="password">pasword</label>
                     </div>
-                    <input type="submit" class="btn" value="Register" name="register">
+                    <input type="submit" class="btn" value="Register" name="register_student">
                 </form>
             </div>
             <div class="edit_student" id="edit_student" style="display: none;">
@@ -78,8 +76,6 @@ require '../src/db.php';
                     <div class="input-group">
                         <input type="text" name="fName" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="mName" placeholder="Middle Name" required>
-                        <label for="mname">Middle Name</label>
                         <input type="text" name="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
@@ -155,7 +151,7 @@ require '../src/db.php';
                     <a href="#" id="delete_teacher_btn" class="btn">Delete Teacher</a>
                 </nav>
             </div>
-            <div class="add_teacher" style="display: none;">
+            <div class="add_teacher" id="add_teacher" style="display: none;">
                 <i>Add Teacher</i>
                 <form method="post" action="src/add_teacher.php">
                     <i>Teacher Details</i>
@@ -163,8 +159,6 @@ require '../src/db.php';
                     <div class="input-group">
                         <input type="text" name="fName" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="mName" placeholder="Middle Name" required>
-                        <label for="mname">Middle Name</label>
                         <input type="text" name="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
@@ -186,7 +180,7 @@ require '../src/db.php';
                     <input type="submit" class="btn" value="Register" name="register">
                 </form>
             </div>
-            <div class="edit_teacher" style="display: none;">
+            <div class="edit_teacher" id="edit_teacher" style="display: none;">
                 <i>Edit Teacher</i>
                 <form method="post" action="src/edit_teacher.php">
                     <i>Current Teacher details</i>
@@ -201,8 +195,6 @@ require '../src/db.php';
                     <div class="input-group">
                         <input type="text" name="fName" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="mName" placeholder="Middle Name" required>
-                        <label for="mname">Middle Name</label>
                         <input type="text" name="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
@@ -224,7 +216,7 @@ require '../src/db.php';
                     <input type="submit" class="btn" value="Register" name="register">
                 </form>
             </div>
-            <div class="delete_teacher" style="display: none;">
+            <div class="delete_teacher" id="delete_teacher" style="display: none;">
                 <i>Delete Teacher</i>
                 <form method="post" action="src/delete_teacher.php">
                     <i>Current Teacher details</i>
