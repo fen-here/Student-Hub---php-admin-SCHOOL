@@ -1,6 +1,6 @@
 <?php
 
-require"db.php";
+require __DIR__ . '/../../src/db.php';
 
 $id=1;
 $newFirstName = $_POST['firstName'];
