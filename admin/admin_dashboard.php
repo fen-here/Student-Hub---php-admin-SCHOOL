@@ -68,7 +68,7 @@ require '../src/admin_db.php';
                 <form method="post" action="src/edit_student.php">
                     <i>Current Student details</i>
                     <div class="input-group">
-                        <input type="text" id="id" name="id" placeholder="Student ID">
+                        <input type="text" id="id" name="current_id" placeholder="Student ID">
                         <input type="text" id="fname" name="current_fname" placeholder="Student First Name">
                         <input type="text" id="lname" name="current_lname" placeholder="Student Last Name">
                         <input type="text" id="grade" name="current_grade" placeholder="Student Grade">
