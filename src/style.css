@@ -7,6 +7,14 @@ body {
 }
 
 
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.support-page{
+    color: black;
+}
+
 header {
     display: flex;
     color: white;
@@ -79,9 +87,18 @@ section {
     background-color: black;
     border: solid, rgba(0, 0, 0, 0), 0px;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 1px;
     width: 200px;
     cursor: pointer;
+}
+
+.create_post {
+    display: block;
+    background-color: aqua;
+    border: solid, rgb(0, 0, 0), 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .student-table {
@@ -97,7 +114,7 @@ section {
     background:#fff;
     width:500px;
     height: 600px;
-    padding:1rem;
+    padding:0.2rem;
     margin:50px auto;
     border-radius:10px;
     display: grid;
@@ -108,8 +125,7 @@ section {
 
 input{
     color:inherit;
-    width:90%;
-
+    width:80%;
     background-color:transparent;
     border: 1px solid black;
     border-radius: 5px;

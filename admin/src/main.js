@@ -1,3 +1,33 @@
+//Admin Login Page
+
+//===========================================
+// Variables
+//===========================================
+
+//buttons
+const forgot_password_btn = document.getElementById('forgot-password-btn');
+const back_to_login_btn = document.getElementById('back-to-login-btn');
+
+// elements
+const login_page = document.getElementById('login');
+const forgot_password_page = document.getElementById('forgot-password');
+
+//===========================================
+// Function
+//===========================================
+
+forgot_password_btn.addEventListener('click', function(){
+    login_page.style.display="none";
+    forgot_password_page.style.display="grid";
+});
+
+back_to_login_btn.addEventListener('click', function(){
+    login_page.style.display="grid";
+    forgot_password_page.style.display="none";
+});
+
+
+//Admin Dashboard
 // ==========================================
 // 1. Page Swap Logic (Main Navigation)
 // ==========================================
@@ -5,30 +35,30 @@
 // Buttons
 const teacher_btn = document.getElementById('teacher_btn');
 const student_btn = document.getElementById('student_btn');
-const admin_btn   = document.getElementById('admin_btn');
+const global_posts_btn   = document.getElementById('global_posts_btn');
 
 // Main Section Containers
 const studentTable = document.getElementById('student-table');
 const teacherTable = document.getElementById('teacher-table');
-const adminTable   = document.getElementById('admin-table');
+const global_posts   = document.getElementById('global-posts');
 
 // Navigation Event Listeners
 student_btn.addEventListener('click', function(){
     studentTable.style.display = "block";
     teacherTable.style.display = "none";
-    adminTable.style.display   = "none";
+    global_posts.style.display   = "none";
 });
 
 teacher_btn.addEventListener('click', function(){
     studentTable.style.display = "none";
     teacherTable.style.display = "block";
-    adminTable.style.display   = "none";
+    global_posts.style.display   = "none";
 });
 
-admin_btn.addEventListener('click', function(){
+global_posts_btn.addEventListener('click', function(){
     studentTable.style.display = "none";
     teacherTable.style.display = "none";
-    adminTable.style.display   = "block";
+    global_posts.style.display   = "block";
 });
 
 
@@ -97,38 +127,4 @@ delete_teacher_btn.addEventListener('click', function(){
     add_teacher.style.display    = "none";
     edit_teacher.style.display   = "none";
     delete_teacher.style.display = "block";
-});
-
-
-// ==========================================
-// 4. Admins Sub-menu Management
-// ==========================================
-
-// Buttons
-const add_admins_btn   = document.getElementById('add_admins_btn');
-const edit_admins_btn  = document.getElementById('edit_admins_btn');
-const delete_admin_btn = document.getElementById('delete_admin_btn');
-
-// Action Panels
-const add_admin    = document.getElementById('add_admin');
-const edit_admin   = document.getElementById('edit_admin');
-const delete_admin = document.getElementById('delete_admin');
-
-// Form Toggles
-add_admins_btn.addEventListener('click', function(){
-    add_admin.style.display    = "block";
-    edit_admin.style.display   = "none";
-    delete_admin.style.display = "none";
-});
-
-edit_admins_btn.addEventListener('click', function(){
-    add_admin.style.display    = "none";
-    edit_admin.style.display   = "block";
-    delete_admin.style.display = "none";
-});
-
-delete_admin_btn.addEventListener('click', function(){
-    add_admin.style.display    = "none";
-    edit_admin.style.display   = "none";
-    delete_admin.style.display = "block";
 });

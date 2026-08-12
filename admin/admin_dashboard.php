@@ -1,7 +1,6 @@
 
 <?php
 require '../src/db.php';
-require '../src/admin_db.php';
 ?>
 
 
@@ -20,11 +19,64 @@ require '../src/admin_db.php';
         <nav>
             <a href="#" id="teacher_btn">Teachers Table</a>
             <a href="#" id="student_btn">Students Table</a>
-            <a href="#" id="admin_btn">Admin Table</a>
+            <a href="#" id="global_post_btn">Global Posts</a>
             <a href="#" class="logout" id="logout">log-out</a>
         </nav>
     </header>
     <section>
+        <div class="global_posts" style="display: none;">
+            <div class="actions">
+                <nav>
+                    <a href="#" id="create_post_btn" class="btn">Create Post</a>
+                </nav>
+            </div>
+            <div class="create_post" id="create_post">
+                <form method="post" action="src/create_post.php">
+                    <i>Post Details</i>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="fName" id="fname" placeholder="First Name" required>
+                        <label for="fname">First Name</label>
+                        <input type="text" name="lName" id="lName" placeholder="Last Name" required>
+                        <label for="lname">Last Name</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-time"></i>
+                        <input type="text" name="date" id="date" placeholder="date" required>
+                        <label for="date">date</label>
+                        <input type="text" name="grade" id="grade" placeholder="Grade" required>
+                        <label for="grade">Grade</label>
+                    </div>
+                    <input type="submit" class="btn" value="Register" name="register_student">
+                </form>
+            </div>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Time</th>
+                    <th>Frist Name</th>
+                    <th>Last Name</th>
+                    <th>Grade</th>
+                    <th>Message</th>
+                </tr>
+                <?php
+                    if ($result_messages && mysqli_num_rows($result_messages) > 0){
+                        while ($row = mysqli_fetch_assoc($result_messages)) {
+                            echo "<tr>";
+                                echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['firstName']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['lastName']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['date']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['grade']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['message']) . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='7'>No records found</td></tr>";
+                    }
+                ?>
+            </table>
+        </div>
         <div class="student-table" id="student-table">
             <h1 class="category">Students</h1>
             <div class="actions">
@@ -263,108 +315,7 @@ require '../src/admin_db.php';
                 ?>
             </table>
         </div>
-        <div class="admin-table" id="admin-table" style="display: none;">
-            <h1 class="category">Admins</h1>
-            <div class="actions">
-                <nav>
-                    <a href="#" id="add_admins_btn" class="btn">Add admin</a>
-                    <a href="#" id="edit_admins_btn" class="btn">Edit admin</a>
-                    <a href="#" id="delete_admin_btn" class="btn">Delete admin</a>
-                </nav>
-            </div>
-
-            <!-- Add Admin Section -->
-            <div class="add_admin" id="add_admin" style="display: none;">
-                <i>Add Admin</i>
-                <form method="post" action="src/add_admin.php">
-                    <i>Admin Details</i>
-                    <i class="fas fa-user"></i>
-                    <div class="input-group">
-                        <input type="text" name="fName" id="fname" placeholder="First Name" required>
-                        <label for="fname">First Name</label>
-                        <input type="text" name="lName" id="lName" placeholder="Last Name" required>
-                        <label for="lName">Last Name</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="email" id="email" placeholder="Email" required>
-                        <label for="email">Email</label>
-                        <input type="password" name="password" id="password" placeholder="Password" required>
-                        <label for="password">Password</label>
-                    </div>
-                    <input type="submit" class="btn" value="Register" name="register_admin">
-                </form>
-            </div>
-
-            <!-- Edit Admin Section -->
-            <div class="edit_admin" id="edit_admin" style="display: none;">
-                <i>Edit Admin</i>
-                <form method="post" action="src/edit_admin.php">
-                    <i>Current Admin details</i>
-                    <div class="input-group">
-                        <input type="text" id="id" name="id" placeholder="Admin ID">
-                        <input type="text" id="fname" name="fname" placeholder="Admin First Name">
-                        <input type="text" id="lname" name="lname" placeholder="Admin Last Name">
-                    </div>
-                    <i>New Admin Details</i>
-                    <i class="fas fa-user"></i>
-                    <div class="input-group">
-                        <input type="text" name="fName" placeholder="First Name" required>
-                        <label for="fname">First Name</label>
-                        <input type="text" name="lName" placeholder="Last Name" required>
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="email" placeholder="Email" required>
-                        <label for="email">Email</label>
-                        <input type="password" name="password" placeholder="Password" required>
-                        <label for="password">Password</label>
-                    </div>
-                    <input type="submit" class="btn" value="Update" name="update_admin">
-                </form>
-            </div>
-
-            <!-- Delete Admin Section -->
-            <div class="delete_admin" id="delete_admin" style="display: none;">
-                <i>Delete Admin</i>
-                <form method="post" action="src/delete_admin.php">
-                    <i>Current details</i>
-                    <div class="input-group">
-                        <input type="text" id="id" name="id" placeholder="Admin ID">
-                        <input type="text" id="fname" name="fname" placeholder="Admin First Name">
-                        <input type="text" id="lname" name="lname" placeholder="Admin Last Name">
-                    </div>
-                    <br>
-                    <input type="password" id="admin_password" name="password" placeholder="Admin Password">
-                    <br>
-                    <input type="submit" class="btn" value="Delete User" name="delete_admin">
-                </form>
-            </div>
-
-            <!-- Admin Table View -->
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                </tr>
-                <?php if ($result_admins && mysqli_num_rows($result_admins) > 0){
-                    while ($row = mysqli_fetch_assoc($result_admins)) {
-                        echo "<tr>";
-                        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['firstName']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['lastName']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['password']) . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='5'>No records found</td></tr>";
-                } ?>
-            </table>
-        </div>
     </section>
-    <script type="module" src="src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
