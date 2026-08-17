@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if a new password was provided to decide whether to update it
     if (!empty($password)) {
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $passwordHash = md5($password);
         
         $stmt = $conn->prepare("UPDATE teachers SET firstName = ?, lastName = ?, age = ?, grade = ?, email = ?, password = ? WHERE id = ?");
         // 6 strings, 1 integer (s = string, i = integer)

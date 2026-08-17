@@ -1,130 +1,55 @@
-//Admin Login Page
+// Admin Dashboard
 
-//===========================================
-// Variables
-//===========================================
+// Page swap function
+function switchView(activeElement, allElements) {
+    allElements.forEach(el => {
+        if (el) el.style.display = el === activeElement ? "block" : "none";
+    });
+}
 
-//buttons
-const forgot_password_btn = document.getElementById('forgot-password-btn');
-const back_to_login_btn = document.getElementById('back-to-login-btn');
-
-// elements
-const login_page = document.getElementById('login');
-const forgot_password_page = document.getElementById('forgot-password');
-
-//===========================================
-// Function
-//===========================================
-
-forgot_password_btn.addEventListener('click', function(){
-    login_page.style.display="none";
-    forgot_password_page.style.display="grid";
-});
-
-back_to_login_btn.addEventListener('click', function(){
-    login_page.style.display="grid";
-    forgot_password_page.style.display="none";
-});
-
-
-//Admin Dashboard
-// ==========================================
-// 1. Page Swap Logic (Main Navigation)
-// ==========================================
-
-// Buttons
-const teacher_btn = document.getElementById('teacher_btn');
-const student_btn = document.getElementById('student_btn');
-const global_posts_btn   = document.getElementById('global_posts_btn');
-
-// Main Section Containers
+// page change
 const studentTable = document.getElementById('student-table');
 const teacherTable = document.getElementById('teacher-table');
-const global_posts   = document.getElementById('global-posts');
+const global_posts = document.getElementById('global-posts');
 
-// Navigation Event Listeners
-student_btn.addEventListener('click', function(){
-    studentTable.style.display = "block";
-    teacherTable.style.display = "none";
-    global_posts.style.display   = "none";
-});
+const mainPages = [studentTable, teacherTable, global_posts];
 
-teacher_btn.addEventListener('click', function(){
-    studentTable.style.display = "none";
-    teacherTable.style.display = "block";
-    global_posts.style.display   = "none";
-});
+const studentBtn = document.getElementById('student_btn');
+const teacherBtn = document.getElementById('teacher_btn');
+const globalPostsBtn = document.getElementById('global_posts_btn');
 
-global_posts_btn.addEventListener('click', function(){
-    studentTable.style.display = "none";
-    teacherTable.style.display = "none";
-    global_posts.style.display   = "block";
-});
+if (studentBtn) studentBtn.addEventListener('click', () => switchView(studentTable, mainPages));
+if (teacherBtn) teacherBtn.addEventListener('click', () => switchView(teacherTable, mainPages));
+if (globalPostsBtn) globalPostsBtn.addEventListener('click', () => switchView(global_posts, mainPages));
 
-
-// ==========================================
-// 2. Students Sub-menu Management
-// ==========================================
-
-// Buttons
-const add_student_btn    = document.getElementById('add_student_btn');
-const edit_student_btn   = document.getElementById('edit_student_btn');
-const delete_student_btn = document.getElementById('delete_student_btn');
-
-// Action Panels
-const add_student    = document.getElementById('add_student');
-const edit_student   = document.getElementById('edit_student');
+// Student Management
+const add_student = document.getElementById('add_student');
+const edit_student = document.getElementById('edit_student');
 const delete_student = document.getElementById('delete_student');
 
-// Form Toggles
-add_student_btn.addEventListener('click', function(){
-    add_student.style.display    = "block";
-    edit_student.style.display   = "none";
-    delete_student.style.display = "none";
-});
+const studentPanels = [add_student, edit_student, delete_student];
 
-edit_student_btn.addEventListener('click', function(){
-    add_student.style.display    = "none";
-    edit_student.style.display   = "block";
-    delete_student.style.display = "none";
-});
+const addStudentBtn = document.getElementById('add_student_btn');
+const editStudentBtn = document.getElementById('edit_student_btn');
+const deleteStudentBtn = document.getElementById('delete_student_btn');
 
-delete_student_btn.addEventListener('click', function(){
-    add_student.style.display    = "none";
-    edit_student.style.display   = "none";
-    delete_student.style.display = "block";
-});
+if (addStudentBtn) addStudentBtn.addEventListener('click', () => switchView(add_student, studentPanels));
+if (editStudentBtn) editStudentBtn.addEventListener('click', () => switchView(edit_student, studentPanels));
+if (deleteStudentBtn) deleteStudentBtn.addEventListener('click', () => switchView(delete_student, studentPanels));
 
-
-// ==========================================
-// 3. Teachers Sub-menu Management
-// ==========================================
-
-// Buttons
-const add_teacher_btn    = document.getElementById('add_teacher_btn');
-const edit_teacher_btn   = document.getElementById('edit_teacher_btn');
-const delete_teacher_btn = document.getElementById('delete_teacher_btn');
-
-// Action Panels
-const add_teacher    = document.getElementById('add_teacher');
-const edit_teacher   = document.getElementById('edit_teacher');
+// Teacher Management
+const add_teacher = document.getElementById('add_teacher');
+const edit_teacher = document.getElementById('edit_teacher');
 const delete_teacher = document.getElementById('delete_teacher');
 
-// Form Toggles
-add_teacher_btn.addEventListener('click', function(){
-    add_teacher.style.display    = "block";
-    edit_teacher.style.display   = "none";
-    delete_teacher.style.display = "none";
-});
+const teacherPanels = [add_teacher, edit_teacher, delete_teacher];
 
-edit_teacher_btn.addEventListener('click', function(){
-    add_teacher.style.display    = "none";
-    edit_teacher.style.display   = "block";
-    delete_teacher.style.display = "none";
-});
+const addTeacherBtn = document.getElementById('add_teacher_btn');
+const editTeacherBtn = document.getElementById('edit_teacher_btn');
+const deleteTeacherBtn = document.getElementById('delete_teacher_btn');
 
-delete_teacher_btn.addEventListener('click', function(){
-    add_teacher.style.display    = "none";
-    edit_teacher.style.display   = "none";
-    delete_teacher.style.display = "block";
-});
+if (addTeacherBtn) addTeacherBtn.addEventListener('click', () => switchView(add_teacher, teacherPanels));
+if (editTeacherBtn) editTeacherBtn.addEventListener('click', () => switchView(edit_teacher, teacherPanels));
+if (deleteTeacherBtn) deleteTeacherBtn.addEventListener('click', () => switchView(delete_teacher, teacherPanels));
+
+// Global Posts

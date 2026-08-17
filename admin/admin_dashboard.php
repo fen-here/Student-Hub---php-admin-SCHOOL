@@ -11,20 +11,20 @@ require '../src/db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../src/style.css">
 </head>
-<link rel="stylesheet" href="../src/style.css">
 <body>
-    <header>
+    <header class="container-header">
         <h1>Student Hub</h1>
         <nav>
-            <a href="#" id="teacher_btn">Teachers Table</a>
-            <a href="#" id="student_btn">Students Table</a>
-            <a href="#" id="global_post_btn">Global Posts</a>
-            <a href="#" class="logout" id="logout">log-out</a>
+            <a href="#" class="btn" id="teacher_btn">Teachers Table</a>
+            <a href="#" class="btn" id="student_btn">Students Table</a>
+            <a href="#" class="btn" id="global_posts_btn">Global Posts</a>
+            <a href="#" class="btn logout" id="logout">log-out</a>
         </nav>
     </header>
-    <section>
-        <div class="global_posts" style="display: none;">
+    <section class="container-list">
+        <div class="global_posts" id="global-posts" style="display: none;">
             <div class="actions">
                 <nav>
                     <a href="#" id="create_post_btn" class="btn">Create Post</a>
@@ -47,7 +47,7 @@ require '../src/db.php';
                         <input type="text" name="grade" id="grade" placeholder="Grade" required>
                         <label for="grade">Grade</label>
                     </div>
-                    <input type="submit" class="btn" value="Register" name="register_student">
+                    <input type="submit" class="btn" value="Post" name="post">
                 </form>
             </div>
             <table>
@@ -316,6 +316,6 @@ require '../src/db.php';
             </table>
         </div>
     </section>
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
 </body>
 </html>
