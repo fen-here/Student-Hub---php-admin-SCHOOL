@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../../src/db.php';
 
-$id=1;
+$id= $_POST['id'];
 $newFirstName = $_POST['firstName'];
 $newLastName = $_POST['lastName'];
 $newGrade = $_POST['grade'];

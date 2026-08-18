@@ -20,7 +20,7 @@ require '../src/db.php';
             <a href="#" class="btn" id="teacher_btn">Teachers Table</a>
             <a href="#" class="btn" id="student_btn">Students Table</a>
             <a href="#" class="btn" id="global_posts_btn">Global Posts</a>
-            <a href="#" class="btn logout" id="logout">log-out</a>
+            <a href="src/logout.php" class="btn logout" id="logout">log-out</a>
         </nav>
     </header>
     <section class="container-list">
@@ -35,17 +35,20 @@ require '../src/db.php';
                     <i>Post Details</i>
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="fName" id="fname" placeholder="First Name" required>
+                        <input type="text" name="fname" id="fname" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="lName" id="lName" placeholder="Last Name" required>
+                        <input type="text" name="lname" id="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
-                        <input type="text" name="date" id="date" placeholder="date" required>
-                        <label for="date">date</label>
                         <input type="text" name="grade" id="grade" placeholder="Grade" required>
                         <label for="grade">Grade</label>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-time"></i>
+                        <input type="text" name="message" id="message" placeholder="Message" required>
+                        <label for="message">Message</label>
                     </div>
                     <input type="submit" class="btn" value="Post" name="post">
                 </form>

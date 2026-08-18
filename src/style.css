@@ -15,6 +15,25 @@ p {
     color: black;
 }
 
+.card {
+    color: white;
+    padding: 10px;
+    background-color: black;
+    border: solid, rgba(0, 0, 0, 0), 0px;
+    border-radius: 5px;
+    margin-top: 1px;
+    width: 50%;
+    cursor: pointer;
+    height: 500px;
+}
+
+
+.pricing {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+}
+
 header {
     display: flex;
     color: white;
@@ -92,6 +111,17 @@ section {
     cursor: pointer;
 }
 
+.btn-white {
+    color: black;
+    padding: 10px;
+    background-color: white;
+    border: solid, rgba(0, 0, 0, 0), 0px;
+    border-radius: 5px;
+    margin-top: 1px;
+    width: 200px;
+    cursor: pointer;
+}
+
 .create_post {
     display: block;
     background-color: aqua;
@@ -131,7 +161,6 @@ section {
     margin:50px auto;
     border-radius:10px;
     display: grid;
-    justify-content: center;
     align-items: center;
     text-align: center;
 }
