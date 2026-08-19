@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email))     { die("Error: Email is missing or empty."); }
     if (empty($password))  { die("Error: Password is missing or empty."); }
 
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
     $stmt = $conn->prepare("INSERT INTO students (firstName, lastName, age, grade, email, password) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssisss", $firstName, $lastName, $age, $grade, $email, $passwordHash);
