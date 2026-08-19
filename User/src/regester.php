@@ -2,6 +2,7 @@
 
 include __DIR__ . '/../../src/db.php';
 
+
 if (isset($_POST['signIn'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -24,7 +25,7 @@ if (isset($_POST['signIn'])) {
             }
             
             $_SESSION['email'] = $row['email'];
-            header("Location: ../dashboard.php");
+            header("Location: ../student/dashboard.php");
             exit();
             
         } else {
