@@ -6,7 +6,17 @@ body {
 
 }
 
+.person{
+    display: flex;
+    gap: 10px;
+}
 
+.post {
+    display: grid;
+    border: solid, black, 1px;
+    margin: 5px auto;
+    padding:5px;
+}
 p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
