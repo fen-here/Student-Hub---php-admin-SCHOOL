@@ -25,11 +25,6 @@ require '../src/db.php';
     </header>
     <section class="container-list">
         <div class="global_posts" id="global-posts" style="display: none;">
-            <div class="actions">
-                <nav>
-                    <a href="#" id="create_post_btn" class="btn">Create Post</a>
-                </nav>
-            </div>
             <div class="create_post" id="create_post">
                 <form method="post" action="src/create_post.php">
                     <i>Post Details</i>

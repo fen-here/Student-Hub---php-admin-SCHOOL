@@ -33,7 +33,7 @@
                 
                 // moves to next page
                 $_SESSION['email'] = $row['email'];
-                header("Location: ../admin_dashboard.php");
+                header("Location: ../student/dashboard.php");
                 exit();
                 
             // gives and error
