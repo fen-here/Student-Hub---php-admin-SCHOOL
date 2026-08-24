@@ -1,23 +1,29 @@
 <?php
 
-require __DIR__ . '/../../src/db.php';
+    //connection to Database
+    require __DIR__ . '/../../src/db.php';
 
-$id= $_POST['id'];
-$newFirstName = $_POST['fname'];
-$newLastName = $_POST['lname'];
-$newGrade = $_POST['grade'];
-$stmt = $conn->prepare(
-    "DELETE FROM teachers WHERE id=?"
-);
+    // getting infromation
+    $id= $_POST['id'];
+    $newFirstName = $_POST['fname'];
+    $newLastName = $_POST['lname'];
+    $newGrade = $_POST['grade'];
 
-$stmt->bind_param(
-    "i", $id
-);
+    //database to delete teacher based on ID
+    $stmt = $conn->prepare(
+        "DELETE FROM teachers WHERE id=?"
+    );
 
-$stmt->execute();
+    // implementing teacher ID request into command
+    $stmt->bind_param(
+        "i", $id
+    );
 
-echo "Teacher information deleted successfully.";
-header("location: ../admin_dashboard.php");
+    //execution
+    $stmt->execute();
+
+    echo "Teacher information deleted successfully.";
+    header("location: ../admin_dashboard.php");
 
 
 ?>

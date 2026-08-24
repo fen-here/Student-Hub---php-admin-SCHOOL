@@ -55,7 +55,7 @@ require '../src/db.php';
             </div>
             <table>
                 <tr>
-                    <th>id</th>
+                    <th>ID</th>
                     <th>Time</th>
                     <th>Frist Name</th>
                     <th>Last Name</th>
@@ -148,7 +148,7 @@ require '../src/db.php';
                     <div class="input-group">
                             <input type="text" name="new_email" placeholder="Email" required>
                             <label for="email">Email</label>
-                            <input type="password" name="new_password" placeholder="Password" required>
+                            <input type="password" name="new_password" placeholder="Password">
                             <label for="password">pasword</label>
                     </div>
                     <input type="submit" class="btn" value="Register" name="register">
@@ -172,13 +172,13 @@ require '../src/db.php';
             </div>
             <table>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>lastname</th>
-                    <th>age</th>
-                    <th>grade</th>
-                    <th>email</th>
-                    <th>password</th>
+                    <th>ID</th>
+                    <th>Frist Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Email</th>
+                    <th>Hashed Password</th>
                 </tr>
                 <?php
                     if ($result_students && mysqli_num_rows($result_students) > 0){
@@ -267,7 +267,7 @@ require '../src/db.php';
                     <div class="input-group">
                             <input type="text" name="email" placeholder="Email" required>
                             <label for="email">Email</label>
-                            <input type="password" name="password" placeholder="Password" required>
+                            <input type="password" name="password" placeholder="Password">
                             <label for="password">pasword</label>
                     </div>
                     <input type="submit" class="btn" value="Register" name="register">
@@ -291,13 +291,13 @@ require '../src/db.php';
             </div>
             <table>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>lastname</th>
-                    <th>age</th>
-                    <th>grade</th>
-                    <th>email</th>
-                    <th>password</th>
+                    <th>ID</th>
+                    <th>Frist Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Email</th>
+                    <th>Hashed Password</th>
                 </tr>
                 <?php
                     if ($result_teachers && mysqli_num_rows($result_teachers) > 0){
