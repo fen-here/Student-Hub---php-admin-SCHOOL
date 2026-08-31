@@ -9,7 +9,7 @@
         // getting information fromwebpage
         $firstName = $_POST['fname'] ?? null; 
         $lastName = $_POST['lname'] ?? null; 
-        $date = date('d-m-Y'); 
+        $date = date('Y-m-d') ?? null; 
         $grade = $_POST['grade'] ?? $_POST['Grade'] ?? null; 
         $message = $_POST['message'] ?? null; 
 

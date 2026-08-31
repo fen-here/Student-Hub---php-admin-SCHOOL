@@ -1,6 +1,16 @@
 
 <?php
-require '../src/db.php';
+
+    //connection to the database
+    require '../src/db.php';
+    
+    session_start();
+    if (!isset($_SESSION['teacher_logged_in']) || $_SESSION['teacher_logged_in'] !== true) {
+        header("Location: Teacher_login_page.php");
+        exit();
+    }
+
+
 ?>
 
 
@@ -14,6 +24,7 @@ require '../src/db.php';
     <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
+    <!-- header of website -->
     <header class="container-header">
         <h1>Student Hub</h1>
         <nav>
@@ -23,7 +34,9 @@ require '../src/db.php';
             <a href="src/logout.php" class="btn logout" id="logout">log-out</a>
         </nav>
     </header>
+    <!-- // main content  -->
     <section class="container-list">
+        <!-- //global posts -->
         <div class="global_posts" id="global-posts" style="display: none;">
             <div class="create_post" id="create_post">
                 <form method="post" action="src/create_post.php">
@@ -37,7 +50,7 @@ require '../src/db.php';
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
-                        <input type="text" name="grade" id="grade" placeholder="Grade" required>
+                        <input type=" number" name="grade" id="grade" placeholder="Grade" required>
                         <label for="grade">Grade</label>
                     </div>
                     <div class="input-group">
@@ -48,12 +61,13 @@ require '../src/db.php';
                     <input type="submit" class="btn" value="Post" name="post">
                 </form>
             </div>
+            <!-- //data in table -->
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>Time</th>
                     <th>Frist Name</th>
                     <th>Last Name</th>
+                    <th>Time</th>
                     <th>Grade</th>
                     <th>Message</th>
                 </tr>
@@ -75,6 +89,8 @@ require '../src/db.php';
                 ?>
             </table>
         </div>
+
+        <!-- //student data table -->
         <div class="student-table" id="student-table">
             <h1 class="category">Students</h1>
             <div class="actions">
@@ -98,9 +114,9 @@ require '../src/db.php';
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="text" name="age" id="age" placeholder="Age" required>
+                            <input type="number" name="age" id="age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="text" name="grade" id="grade" placeholder="Grade" required>
+                            <input type="number" name="grade" id="grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -118,10 +134,10 @@ require '../src/db.php';
                 <form method="post" action="src/edit_student.php">
                     <i>Current Student details</i>
                     <div class="input-group">
-                        <input type="text" id="id" name="current_id" placeholder="Student ID">
+                        <input type="number" id="id" name="current_id" placeholder="Student ID">
                         <input type="text" id="fname" name="current_fname" placeholder="Student First Name">
                         <input type="text" id="lname" name="current_lname" placeholder="Student Last Name">
-                        <input type="text" id="grade" name="current_grade" placeholder="Student Grade">
+                        <input type="number" id="grade" name="current_grade" placeholder="Student Grade">
                     </div>
                     <i>New Student Details</i>
                     <i class="fas fa-user"></i>
@@ -134,9 +150,9 @@ require '../src/db.php';
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="text" name="new_age" placeholder="Age" required>
+                            <input type="number" name="new_age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="text" name="new_grade" placeholder="Grade" required>
+                            <input type="number" name="new_grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -154,10 +170,10 @@ require '../src/db.php';
                 <form method="post" action="src/delete_student.php">
                     <i>Current Student details</i>
                     <div class="input-group">
-                        <input type="text" id="id" name="id" placeholder="Student ID">
+                        <input type="number" id="id" name="id" placeholder="Student ID">
                         <input type="text" id="fname" name="fname" placeholder="Student First Name">
                         <input type="text" id="lname" name="lname" placeholder="Student Last Name">
-                        <input type="text" id="grade" name="grade" placeholder="Student Grade">
+                        <input type="number" id="grade" name="grade" placeholder="Student Grade">
                     </div>
                     <br>
                     <input type="password" id="admin_password" name="password" placeholder="Admin Password">
@@ -194,6 +210,8 @@ require '../src/db.php';
                 ?>
             </table>
         </div>
+
+        <!-- //teacher data table -->
         <div class="teacher-table" id="teacher-table" style="display: none;">
             <h1 class="category">teachers</h1>
             <div class="actions">
@@ -217,9 +235,9 @@ require '../src/db.php';
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="text" name="age" placeholder="Age" required>
+                            <input type="number" name="age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="text" name="Grade" placeholder="Grade" required>
+                            <input type="number" name="Grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -237,10 +255,10 @@ require '../src/db.php';
                 <form method="post" action="src/edit_teacher.php">
                     <i>Current Teacher details</i>
                     <div class="input-group">
-                        <input type="text" id="id" name="id" placeholder="Teacher ID">
+                        <input type="nunber" id="id" name="id" placeholder="Teacher ID">
                         <input type="text" id="fname" name="fname" placeholder="Teacher First Name">
                         <input type="text" id="lname" name="lname" placeholder="Teacher Last Name">
-                        <input type="text" id="grade" name="grade" placeholder="Teacher Grade">
+                        <input type="number" id="grade" name="grade" placeholder="Teacher Grade">
                     </div>
                     <i>New Teacher Details</i>
                     <i class="fas fa-user"></i>
@@ -253,9 +271,9 @@ require '../src/db.php';
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="text" name="age" placeholder="Age" required>
+                            <input type="number" name="age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="text" name="Grade" placeholder="Grade" required>
+                            <input type="number" name="Grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -273,10 +291,10 @@ require '../src/db.php';
                 <form method="post" action="src/delete_teacher.php">
                     <i>Current Teacher details</i>
                     <div class="input-group">
-                        <input type="text" id="id" name="id" placeholder="Teacher ID">
+                        <input type="number" id="id" name="id" placeholder="Teacher ID">
                         <input type="text" id="fname" name="fname" placeholder="Teacher First Name">
                         <input type="text" id="lname" name="lname" placeholder="Teacher Last Name">
-                        <input type="text" id="grade" name="grade" placeholder="Teacher Grade">
+                        <input type="number" id="grade" name="grade" placeholder="Teacher Grade">
                     </div>
                     <br>
                     <input type="password" id="admin_password" name="password" placeholder="Admin Password">

@@ -3,12 +3,47 @@ body {
     place-items: center;
     display:grid;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.profile{
+    display:grid;
+    padding: 5px;
+    border: 1px solid black;
+    width: auto;
+    margin: 1px auto;
+    height: auto;
+    text-align: center;
+    vertical-align: center;
+    align-items: center;
+}
+
+.divide{
+    background-color: black;
+    height:1px;
+    width: 250px;
+}
+
+.message{
+    padding:10px;
+    border: 1px black solid;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+.pfp {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-radius: 50%;
+    padding: 1px;
 
 }
 
 .person{
+    
     display: flex;
     gap: 10px;
+
 }
 
 .post {
@@ -52,9 +87,7 @@ header {
 }
 
 table {
-    border: solid, rgb(0, 0, 0), 3px;
     margin: 5px;
-    display: block;
     padding: 10px;
     border-radius: 5px;
 
@@ -66,11 +99,14 @@ th{
     background-color: black;
     color: white;
     padding-bottom: 10px;
+    padding:10px;
 }
 
 td {
     font-size: large;
     border: solid, rgb(0, 0, 0), 1px;
+    text-align: center;
+    padding: 5px;
 
 }
 
@@ -93,7 +129,6 @@ h1 {
 section {
     display:grid;
     padding: 20px;
-
     padding-bottom: 100px;
     background-color: rgba(240, 248, 255, 0.75);
     gap: 5px;
@@ -152,14 +187,11 @@ form{
 }
 
 .create_post {
-    display: block;
+    display: flex;
     background-color: rgba(0, 0, 0, 0.315);
-    border: solid, rgb(0, 0, 0), 4px;
-    padding: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
-
 
 
 .container{
@@ -182,7 +214,7 @@ form{
     padding:0.2rem;
     margin:50px auto;
     border-radius:10px;
-    display: grid;
+    
     align-items: center;
     text-align: center;
 }
@@ -209,7 +241,6 @@ form{
     margin:50px auto;
     padding-bottom: 100px;
     border-radius:10px;
-    display: grid;
     align-items: center;
     justify-content: center;
 }
@@ -237,20 +268,35 @@ input{
     color:black;
 }
 
+.global_posts{
+    background-color: white;    
+    margin-bottom: 5px;
+    border-radius: 5px;
+    margin: 1px auto;
+    border: 1px solid black;
+    display: block;
+}
 
 .teacher-table {
     background-color: white;
-    border: solid, rgb(0, 0, 0), 1px;
-    padding: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
+    margin: 1px auto;
+    border: 1px solid black;
+    display: block;
 }
 
 .student-table {
-    display: block;
-    background-color: white;
-    border: solid, rgb(0, 0, 0), 1px;
-    padding: 10px;
+    background-color: white;    
     margin-bottom: 5px;
     border-radius: 5px;
+    margin: 1px auto;
+    border: 1px solid black;
+    display: block;
+    width: auto;
+}
+
+
+@keyframes background-animation {
+
 }

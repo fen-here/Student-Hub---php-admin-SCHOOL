@@ -10,7 +10,7 @@
         $firstName = $_POST['fName'] ?? null;
         $lastName  = $_POST['lName'] ?? null;
         $age       = $_POST['age'] ?? null;
-        $grade     = $_POST['Grade'] ?? null; // Capitalised to match your HTML form context
+        $grade     = $_POST['Grade'] ?? null;
         $email     = $_POST['email'] ?? null;
         $password  = $_POST['password'] ?? null;
 
