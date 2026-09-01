@@ -32,8 +32,9 @@ if(isset($_SESSION['email'])){
             <h1>Student Hub</h1>
             <p>High School</p>
         </div>
-
         <nav>
+            <a href="#" class="btn" id="dashboard_btn">Dashboard</a>
+            <a href="#" class="btn" id="time_table_btn">Time Table</a>
             <a href="../src/logout.php" class="btn" id="logout">log-out</a>
         </nav>
         
@@ -45,13 +46,57 @@ if(isset($_SESSION['email'])){
                 <h1 class="fname"><?php  echo $firstName?></h1>
                 <h1 class="lname"><?php  echo $lastName?></h1>
             </div>
+            <div class="divide"></div>
             <div class="person">
                 <p class="grade">Grade: <?php echo $grade?></p>
                 <p class="age"> Age: <?php echo $age?></p>
                 <p class="student-id"> ID: <?php echo $id?></p>
             </div>
         </div>
-        <div class="global_posts">
+
+        <div class="timetable" id="timetable" style="display:none;">
+            <h1>Time Table</h1>
+            <table class="timetable-element">
+                <tr>
+                    <th class="time">Time</th>
+                    <th>Subject</th>
+                </tr>
+                <tr>
+                    <td class="time">8:30-8:50</td>
+                    <td>Homroom</td>
+                </tr>
+                <tr>
+                    <td class="time">8:50-9:50</td>
+                    <td>Subject 1</td>
+                </tr>
+                <tr>
+                    <td class="time">9:50-10:50</td>
+                    <td>Subject 2</td>
+                </tr>
+                <tr id="break">
+                    <td class="break">10:50-11:20</td>
+                    <td class="break">Recess</td>
+                </tr>
+                <tr>
+                    <td class="time">11:20-12:20</td>
+                    <td>Subject 2</td>
+                </tr>
+                <tr>
+                    <td class="time">12:20-13:20</td>
+                    <td>Subject 4</td>
+                </tr>
+                <tr>
+                    <td class="break">13:20-13:50</td>
+                    <td class="break">Lunch</td>
+                </tr>
+                <tr>
+                    <td class="time">13:50-14:50</td>
+                    <td>Subject 5</td>
+                </tr>
+            </table>
+        </div>
+        <!--Posts-->
+        <div class="global_posts" id="dashboard">
             <h1>Posts</h1>
             <?php 
                 if ($result_messages && mysqli_num_rows($result_messages) > 0){
@@ -59,6 +104,7 @@ if(isset($_SESSION['email'])){
                         echo "<div class='post'>";
                             echo "<div>";
                                 echo "<div class='person'>";
+                                    echo "<div class='pfp'></div>";
                                     echo "<h1>" . htmlspecialchars($row['firstName']) . "</h1>";
                                     echo "<h1>" . htmlspecialchars($row['lastName']) . "</h1>";
                                 echo "</div>";
@@ -92,5 +138,6 @@ if(isset($_SESSION['email'])){
             echo "<tr><td colspan='7'>No records found</td></tr>";
         }
     ?>
+    <script type="module" src="../src/dashboard.js"></script>
 </body>
 </html>

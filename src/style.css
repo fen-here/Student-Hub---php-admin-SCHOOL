@@ -8,13 +8,14 @@ body {
 .profile{
     display:grid;
     padding: 5px;
-    border: 1px solid black;
+    
     width: auto;
-    margin: 1px auto;
+    margin: 1px;
     height: auto;
     text-align: center;
     vertical-align: center;
     align-items: center;
+    align-items: flex-start;
 }
 
 .divide{
@@ -24,10 +25,12 @@ body {
 }
 
 .message{
-    padding:10px;
+    padding:20px;
     border: 1px black solid;
     border-radius: 5px;
     font-size: larger;
+    text-align: left;
+
 }
 
 .pfp {
@@ -46,11 +49,45 @@ body {
 
 }
 
+.timetable {
+    background-color: white;    
+    margin-bottom: 1px;
+    border-radius: 5px;
+    margin: 1px auto;
+    border: 1px solid black;
+    display: block;
+    padding: 10px;
+    height: auto;
+    align-items: center;
+    place-items: center;
+    text-align: center;
+}
+
+.time{
+    width: 20%;
+}
+
+.break{
+    background-color: rgba(0, 0, 0, 0.493);
+    color: white;
+}
+
+td {
+    padding: 10px;
+}
+
+.timetable-element {
+    width: auto;
+}
+
 .post {
     display: grid;
     border: solid, black, 1px;
-    margin: 5px auto;
-    padding:5px;
+    margin: 10px auto;
+    padding: 10px;
+    width: 85vw;
+    height: 50%;
+
 }
 p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -68,6 +105,21 @@ p {
     border-radius: 5px;
     margin-top: 1px;
     width: 50%;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    height: 500px;
+    transition: linear 0.2s;
+}
+
+.card:hover {
+    color: white;
+    padding: 10px;
+    background-color: black;
+    border: solid, rgba(0, 0, 0, 0), 0px;
+    border-radius: 5px;
+    margin-top: 1px;
+    width: 100%;
     align-items: center;
     text-align: center;
     cursor: pointer;
@@ -90,6 +142,8 @@ table {
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
+    align-items: center;
+    place-items: center;
 
 }
 
@@ -151,6 +205,10 @@ form{
     color: black;
 }
 
+.forgot-password:hover {
+    color: rgba(0, 0, 0, 0.493);
+}
+
 .homepage {
     color: black;
 }
@@ -159,7 +217,20 @@ form{
     color: white;
     padding: 10px;
     background-color: black;
-    border: solid, rgba(0, 0, 0, 0), 0px;
+    border: solid, rgba(0, 0, 0, 0), 1px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.2s linear;
+}
+
+.btn:hover {
+    color: black;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: solid, rgba(0, 0, 0, 1), 1px;
     border-radius: 5px;
     margin: 10px;
     width: 200px;
@@ -173,13 +244,34 @@ form{
     height: 150px;
     width: auto;
     color: white;
+    transition: 0.2s linear;
+}
+
+.Top:hover {
+    margin: 2px auto;
+    background-color: black;
+    height: 200px;
+    width: auto;
+    color: white;
 }
 
 .btn-white {
     color: black;
     padding: 10px;
     background-color: white;
-    border: solid, rgba(0, 0, 0, 0), 0px;
+    border: solid, rgba(0, 0, 0, 0), 1px;
+    border-radius: 5px;
+    margin-top: 1px;
+    width: 200px;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.btn-white:hover {
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    border: solid, rgb(255, 255, 255), 1px;
     border-radius: 5px;
     margin-top: 1px;
     width: 200px;
@@ -188,8 +280,9 @@ form{
 
 .create_post {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.315);
+    background-color: rgba(255, 255, 255, 0);
     margin-bottom: 5px;
+    padding: 10px;
     border-radius: 5px;
 }
 
@@ -205,13 +298,27 @@ form{
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: 0.2s linear;
 }
+
 
 .container-lg{
     background:#fff;
     width:95vw;
     height: 70vh;
-    padding:0.2rem;
+    padding:0.5rem;
+    margin:50px auto;
+    border-radius:10px;
+    
+    align-items: center;
+    text-align: center;
+}
+
+.container-l{
+    background:#fff;
+    width:95vw;
+    height: 10vh;
+    padding:0.5rem;
     margin:50px auto;
     border-radius:10px;
     
@@ -253,6 +360,17 @@ input{
     border-radius: 5px;
     padding:7px;
     font-size:15px;
+    transition: 0.3s linear;
+}
+
+input:hover{
+    color:inherit;
+    width:80%;
+    background-color:transparent;
+    border: 2px solid rgba(0, 0, 0, 0.719);
+    border-radius: 5px;
+    padding:7px;
+    font-size:15px;
 }
 .input-group{
     display: flex;
@@ -270,11 +388,13 @@ input{
 
 .global_posts{
     background-color: white;    
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     border-radius: 5px;
     margin: 1px auto;
     border: 1px solid black;
     display: block;
+    padding: 10px;
+    height: auto;
 }
 
 .teacher-table {

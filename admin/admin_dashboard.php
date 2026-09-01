@@ -2,14 +2,24 @@
 <?php
 
     //connection to the database
-    require '../src/db.php';
-    
     session_start();
-    if (!isset($_SESSION['teacher_logged_in']) || $_SESSION['teacher_logged_in'] !== true) {
-        header("Location: Teacher_login_page.php");
-        exit();
-    }
+    include '../src/db.php';
+    
+    
+    if(isset($_SESSION['email'])) {
+        $email = $_SESSION["email"];
 
+        $email = mysqli_real_escape_string($conn, $email);
+        $user_data = mysqli_query($conn, "SELECT * FROM `teachers` WHERE email='$email'");
+        
+        while($row = mysqli_fetch_array($user_data)){ 
+            $firstName = $row['firstName'];
+            $lastName = $row['lastName'] ;
+            $grade = $row['grade'];
+            $age = $row['age'];
+            $id = $row['id'];
+        }
+    }    
 
 ?>
 
@@ -33,16 +43,28 @@
             <a href="#" class="btn" id="global_posts_btn">Global Posts</a>
             <a href="src/logout.php" class="btn logout" id="logout">log-out</a>
         </nav>
+        
     </header>
     <!-- // main content  -->
     <section class="container-list">
+        <div class="profile">
+            <div class="person">
+                <div class="pfp"></div>
+                <h1 class="fname"><?php echo $firstName?></h1>
+                <h1 class="lname"><?php echo $lastName?></h1>
+            </div>
+            <div class="divide"></div>
+            <div class="person">
+                <p class="grade">Grade: <?php echo $grade?></p>
+                <p class="age"> Age: <?php echo $age?></p>
+            </div>
+        </div>
         <!-- //global posts -->
         <div class="global_posts" id="global-posts" style="display: none;">
             <div class="create_post" id="create_post">
                 <form method="post" action="src/create_post.php">
                     <i>Post Details</i>
                     <div class="input-group">
-                        <i class="fas fa-user"></i>
                         <input type="text" name="fname" id="fname" placeholder="First Name" required>
                         <label for="fname">First Name</label>
                         <input type="text" name="lname" id="lName" placeholder="Last Name" required>

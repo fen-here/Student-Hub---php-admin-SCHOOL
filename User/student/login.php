@@ -21,6 +21,7 @@
                 <input type="password" name="password" id="password" placeholder="Password" required>
             </div>
             <a href="#" class="forgot-password" id="forgot-password-btn">Forgot Password?</a>
+            <a href="../../index.html" class="forgot-password" id="home-page">Back to Home Page</a>
             <div class="input-group">
                 <input type="submit" class="btn" value="Login" name="signIn" id="login-btn">
             </div>
