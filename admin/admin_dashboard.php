@@ -23,7 +23,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +35,10 @@
 <body>
     <!-- header of website -->
     <header class="container-header">
-        <h1>Student Hub</h1>
+        <div class="title">
+            <h1>Student Hub</h1>
+            <p>High School</p>
+        </div>
         <nav>
             <a href="#" class="btn" id="teacher_btn">Teachers Table</a>
             <a href="#" class="btn" id="student_btn">Students Table</a>
@@ -65,14 +67,14 @@
                 <form method="post" action="src/create_post.php">
                     <i>Post Details</i>
                     <div class="input-group">
-                        <input type="text" name="fname" id="fname" placeholder="First Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="fname" id="fname" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="lname" id="lName" placeholder="Last Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="lname" id="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
-                        <input type=" number" name="grade" id="grade" placeholder="Grade" required>
+                        <input type=" number" min="1" max="13" name="grade" id="grade" placeholder="Grade" required>
                         <label for="grade">Grade</label>
                     </div>
                     <div class="input-group">
@@ -92,6 +94,7 @@
                     <th>Time</th>
                     <th>Grade</th>
                     <th>Message</th>
+                    <th>reacts</th>
                 </tr>
                 <?php
                     if ($result_messages && mysqli_num_rows($result_messages) > 0){
@@ -103,6 +106,7 @@
                                 echo "<td>" . htmlspecialchars($row['date']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['grade']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['message']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['reacts']) . "</td>";
                             echo "</tr>";
                         }
                     } else {
@@ -128,17 +132,17 @@
                     <i>Student Details</i>
                     <i class="fas fa-user"></i>
                     <div class="input-group">
-                        <input type="text" name="fName" id="fname" placeholder="First Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="fName" id="fname" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="lName" id="lName" placeholder="Last Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="lName" id="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="number" name="age" id="age" placeholder="Age" required>
+                            <input type="number" min="4" name="age" id="age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="number" name="grade" id="grade" placeholder="Grade" required>
+                            <input type="number" min="1" max="13" name="grade" id="grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -156,25 +160,25 @@
                 <form method="post" action="src/edit_student.php">
                     <i>Current Student details</i>
                     <div class="input-group">
-                        <input type="number" id="id" name="current_id" placeholder="Student ID">
-                        <input type="text" id="fname" name="current_fname" placeholder="Student First Name">
-                        <input type="text" id="lname" name="current_lname" placeholder="Student Last Name">
-                        <input type="number" id="grade" name="current_grade" placeholder="Student Grade">
+                        <input type="number" oninput="numbersOnly(this)" id="id" name="current_id" placeholder="Student ID">
+                        <input type="text" oninput="lettersOnly(this)" id="fname" name="current_fname" placeholder="Student First Name">
+                        <input type="text" oninput="lettersOnly(this)" id="lname" name="current_lname" placeholder="Student Last Name">
+                        <input type="number" min="1" max="13" id="grade" name="current_grade" placeholder="Student Grade">
                     </div>
                     <i>New Student Details</i>
                     <i class="fas fa-user"></i>
                     <div class="input-group">
-                        <input type="text" name="new_fName" placeholder="First Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="new_fName" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="new_lName" placeholder="Last Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="new_lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="number" name="new_age" placeholder="Age" required>
+                            <input type="number" min="4" name="new_age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="number" name="new_grade" placeholder="Grade" required>
+                            <input type="number" min="1" max="13" name="new_grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -192,10 +196,10 @@
                 <form method="post" action="src/delete_student.php">
                     <i>Current Student details</i>
                     <div class="input-group">
-                        <input type="number" id="id" name="id" placeholder="Student ID">
-                        <input type="text" id="fname" name="fname" placeholder="Student First Name">
-                        <input type="text" id="lname" name="lname" placeholder="Student Last Name">
-                        <input type="number" id="grade" name="grade" placeholder="Student Grade">
+                        <input type="number" oninput="numbersOnly(this)" id="id" name="id" placeholder="Student ID">
+                        <input type="text" oninput="lettersOnly(this)" id="fname" name="fname" placeholder="Student First Name">
+                        <input type="text" oninput="lettersOnly(this)" id="lname" name="lname" placeholder="Student Last Name">
+                        <input type="number" min="1" max="13" id="grade" name="grade" placeholder="Student Grade">
                     </div>
                     <br>
                     <input type="password" id="admin_password" name="password" placeholder="Admin Password">
@@ -277,25 +281,25 @@
                 <form method="post" action="src/edit_teacher.php">
                     <i>Current Teacher details</i>
                     <div class="input-group">
-                        <input type="nunber" id="id" name="id" placeholder="Teacher ID">
-                        <input type="text" id="fname" name="fname" placeholder="Teacher First Name">
-                        <input type="text" id="lname" name="lname" placeholder="Teacher Last Name">
-                        <input type="number" id="grade" name="grade" placeholder="Teacher Grade">
+                        <input type="nunber" oninput="numbersOnly(this)" id="id" name="id" placeholder="Teacher ID">
+                        <input type="text" oninput="lettersOnly(this)" id="fname" name="fname" placeholder="Teacher First Name">
+                        <input type="text" oninput="lettersOnly(this)"id="lname" name="lname" placeholder="Teacher Last Name">
+                        <input type="number" min="1" max="13" id="grade" name="grade" placeholder="Teacher Grade">
                     </div>
                     <i>New Teacher Details</i>
                     <i class="fas fa-user"></i>
                     <div class="input-group">
-                        <input type="text" name="fName" placeholder="First Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="fName" placeholder="First Name" required>
                         <label for="fname">First Name</label>
-                        <input type="text" name="lName" placeholder="Last Name" required>
+                        <input type="text" oninput="lettersOnly(this)" name="lName" placeholder="Last Name" required>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-time"></i>
                         <div>
-                            <input type="number" name="age" placeholder="Age" required>
+                            <input type="number" min="4" name="age" placeholder="Age" required>
                             <label for="age">Age</label>
-                            <input type="number" name="Grade" placeholder="Grade" required>
+                            <input type="number" min="1" max="13" name="Grade" placeholder="Grade" required>
                             <label for="grade">Grade</label>
                         </div>
                     </div>
@@ -313,10 +317,10 @@
                 <form method="post" action="src/delete_teacher.php">
                     <i>Current Teacher details</i>
                     <div class="input-group">
-                        <input type="number" id="id" name="id" placeholder="Teacher ID">
-                        <input type="text" id="fname" name="fname" placeholder="Teacher First Name">
-                        <input type="text" id="lname" name="lname" placeholder="Teacher Last Name">
-                        <input type="number" id="grade" name="grade" placeholder="Teacher Grade">
+                        <input type="number" oninput="numbersOnly(this)" id="id" name="id" placeholder="Teacher ID">
+                        <input type="text" oninput="lettersOnly(this)" id="fname" name="fname" placeholder="Teacher First Name">
+                        <input type="text" oninput="lettersOnly(this)" id="lname" name="lname" placeholder="Teacher Last Name">
+                        <input type="number" min="1" max="13" id="grade" name="grade" placeholder="Teacher Grade">
                     </div>
                     <br>
                     <input type="password" id="admin_password" name="password" placeholder="Admin Password">

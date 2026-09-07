@@ -41,9 +41,11 @@
 
         //execution
         if ($stmt->execute()) {
+            echo "Success";
             header("Location: ../admin_dashboard.php");
             exit();
         } else {
+            echo "Fail";
             echo "Error execution failed: " . $stmt->error;
         }
 

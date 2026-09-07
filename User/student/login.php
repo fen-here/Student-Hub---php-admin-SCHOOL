@@ -14,11 +14,11 @@
             <h1>Login</h1>
             <div class="input-group">
                 <i class="fas fa-envelope"></i>
-                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="email" name="email" id="email" placeholder="Email" required autocomplete="email">
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <input type="password" name="password" id="password" placeholder="Password" required autocomplete="current-password">
             </div>
             <a href="#" class="forgot-password" id="forgot-password-btn">Forgot Password?</a>
             <a href="../../index.html" class="forgot-password" id="home-page">Back to Home Page</a>

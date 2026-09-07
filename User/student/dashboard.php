@@ -95,34 +95,42 @@ if(isset($_SESSION['email'])){
                 </tr>
             </table>
         </div>
-        <!--Posts-->
-        <div class="global_posts" id="dashboard">
-            <h1>Posts</h1>
+        <!--Posts--> 
+        <div class="global_posts" id="dashboard"> 
+            <h1>Posts</h1> 
             <?php 
-                if ($result_messages && mysqli_num_rows($result_messages) > 0){
-                    while ($row = mysqli_fetch_assoc($result_messages)) {
-                        echo "<div class='post'>";
-                            echo "<div>";
-                                echo "<div class='person'>";
-                                    echo "<div class='pfp'></div>";
-                                    echo "<h1>" . htmlspecialchars($row['firstName']) . "</h1>";
-                                    echo "<h1>" . htmlspecialchars($row['lastName']) . "</h1>";
-                                echo "</div>";
-                                echo "<div class='divide'></div>";
-                                echo "<div class='person'>";
-                                    echo "<p>" . 'Date: '. htmlspecialchars($row['date']) . "</p>";
-                                    echo "<p>" . 'Grade: '. htmlspecialchars($row['grade']) . "</p>";
-                                echo "</div>";
-                            echo "</div>";
-                            echo "<p class='message'>" . htmlspecialchars($row['message']) . "</p>";
-                        echo "</div>";
-                    }
-                } else {
-                    echo "<h1>" . "No posts" . "</h1>";
-                }
-            ?>
+            if ($result_messages && mysqli_num_rows($result_messages) > 0) { 
+                while ($row = mysqli_fetch_assoc($result_messages)) { 
+                    echo "<div class='post'>"; 
+                        echo "<div>"; 
+                            echo "<div class='person'>"; 
+                                echo "<div class='pfp'></div>"; 
+                                echo "<h1>" . htmlspecialchars($row['firstName']) . "</h1>"; 
+                                echo "<h1>" . htmlspecialchars($row['lastName']) . "</h1>"; 
+                            echo "</div>"; 
+                            echo "<div class='divide'></div>"; 
+                            echo "<div class='person'>"; 
+                                echo "<p>" . 'Date: '. htmlspecialchars($row['date']) . "</p>"; 
+                                echo "<p>" . 'Grade: '. htmlspecialchars($row['grade']) . "</p>"; 
+                            echo "</div>"; 
+                        echo "</div>"; 
+                        echo "<p class='message'>" . htmlspecialchars($row['message']) . "</p>"; 
+                        
+                        // FIXED: Wrapped the input/button in a form tag to send the POST request
+                        echo "<form action='../src/reacts.php' method='POST' class='input-group'>"; 
+                            // FIXED: Concatenated $row['id'] properly instead of nesting <?php tags
+                            echo "<input type='hidden' name='id' value='" . htmlspecialchars($row['id']) . "'>"; 
+                            echo "<button type='submit' class='btn' id='react' name='react'>react</button>"; 
+                            echo "<p>" . htmlspecialchars($row['reacts']) . "</p>"; 
+                        echo "</form>"; 
+                    echo "</div>"; 
+                } 
+            } else { 
+                echo "<h1>" . "No posts" . "</h1>"; 
+            } 
+            ?> 
         </div>
-    </div>
+
     <?php
         if ($result_messages && mysqli_num_rows($result_messages) > 0){
             while ($row = mysqli_fetch_assoc($result_messages)) {

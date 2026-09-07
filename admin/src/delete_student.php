@@ -5,8 +5,8 @@
 
     // getting necessary information
     $id= $_POST['id'];
-    $newFirstName = $_POST['firstName'];
-    $newLastName = $_POST['lastName'];
+    $newFirstName = $_POST['fName'];
+    $newLastName = $_POST['lName'];
     $newGrade = $_POST['grade'];
 
     //database to delete student based on ID
@@ -18,10 +18,12 @@
     $stmt->bind_param(
         "i", $id
     );
-
+    
     //execution
     $stmt->execute();
+    
+    echo "Deleted!";
+    header("location: ../admin_dashboard.php");
 
-    echo "Student information deleted successfully.";
 
 ?>

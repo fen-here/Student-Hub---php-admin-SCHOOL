@@ -36,9 +36,13 @@ body {
 .pfp {
     height: 50px;
     width: 50px;
-    background-color: black;
+    background-image: url(../assets/user-default-pfp.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     border-radius: 50%;
     padding: 1px;
+    border: black 1px solid;
 
 }
 

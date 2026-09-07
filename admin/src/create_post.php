@@ -26,10 +26,12 @@
         //execution
         if ($stmt->execute()) { 
             $stmt->close();
+            echo "Success";
             header("Location: ../admin_dashboard.php"); 
             exit();
         } else { 
-            echo "Error execution failed: " . $stmt->error; 
+            echo "Fail";
+            echo "Error execution failed: " . $stmt->error;
         } 
         
         $stmt->close(); 

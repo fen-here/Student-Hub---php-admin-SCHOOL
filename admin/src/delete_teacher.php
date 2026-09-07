@@ -23,6 +23,7 @@
     $stmt->execute();
 
     echo "Teacher information deleted successfully.";
+    echo "Deleted!";
     header("location: ../admin_dashboard.php");
 
 

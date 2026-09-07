@@ -43,9 +43,13 @@
         // execution
         if ($stmt->execute()) {
             echo "New student added successfully.";
+            $_SESSION['success'] = "Success";
             header("location: ../admin_dashboard.php");
+            exit();
         } else {
+            $_SESSION['success'] = "Fail";
             echo "Error execution failed: " . $stmt->error;
+
         }
         
 
