@@ -1,5 +1,84 @@
 // Admin Dashboard
 
+function Global_posts_valid() {
+    let grade = document.getElementById('grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+}
+
+function Add_student_valid(){
+    let grade = document.getElementById('grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+
+    let age = document.getElementById('age').value;
+    if (isNaN(age) || age < 4 || age > 20) {
+        return alert("Age Not Valid");
+    }
+}
+
+function Edit_student_valid(){
+    let current_grade = document.getElementById('current_grade').value;
+    if (isNaN(current_grade) || current_grade < 1 || current_grade > 12) {
+        return alert("Grade Not Valid");
+    }
+
+    let grade = document.getElementById('new_grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+
+    let age = document.getElementById('new_age').value;
+    if (isNaN(age) || age < 4 || age > 20) {
+        return alert("Age Not Valid");
+    }
+}
+
+function Delete_student_valid(){
+    let grade = document.getElementById('grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+}
+
+function Add_teacher_valid(){
+    let grade = document.getElementById('grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+
+    let age = document.getElementById('age').value;
+    if (isNaN(age) || age < 20) {
+        return alert("Age Not Valid");
+    }
+}
+
+function Edit_teacher_valid(){
+    let current_grade = document.getElementById('current_grade').value;
+    if (isNaN(current_grade) || current_grade < 1 || current_grade > 12) {
+        return alert("Grade Not Valid");
+    }
+
+    let grade = document.getElementById('new_grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+
+    let age = document.getElementById('new_age').value;
+    if (isNaN(age) || age < 20) {
+        return alert("Age Not Valid");
+    }
+}
+
+function Delete_teacher_valid(){
+    let grade = document.getElementById('grade').value;
+    if (isNaN(grade) || grade < 1 || grade > 12) {
+        return alert("Grade Not Valid");
+    }
+}
+
 // Page swap function
 function switchView(activeElement, allElements) {
     allElements.forEach(el => {

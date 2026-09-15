@@ -15,21 +15,55 @@
         $password  = $_POST['password'] ?? null;
 
         //checking for if infromation is missing or empty
-        if (empty($firstName)) { die("Error: First Name is missing or empty."); }
-        if (empty($lastName))  { die("Error: Last Name is missing or empty."); }
-        if (empty($grade))     { die("Error: Grade is missing or empty."); }
-        if (empty($email))     { die("Error: Email is missing or empty."); }
-        if (empty($password))  { die("Error: Password is missing or empty."); }
+        if (empty($firstName)) { 
+            echo "<script>
+                    alert('Error: First Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($lastName)) { 
+            echo "<script>
+                    alert('Error: Last Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($grade)) { 
+            echo "<script>
+                    alert('Error: Grade is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($email)) { 
+            echo "<script>
+                    alert('Error: Email is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($password)) { 
+            echo "<script>
+                    alert('Error: Password is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
 
         //checking is password already exists
-        $checkEmail = $conn->prepare("SELECT email FROM teachers WHERE email = ?");
+        $checkEmail = $conn->prepare("SELECT email FROM students WHERE email = ?");
         $checkEmail->bind_param("s", $email);
         $checkEmail->execute();
         $checkEmail->store_result();
         
         if ($checkEmail->num_rows > 0) {
             $checkEmail->close();
-            die("Error: This email address is already registered.");
+            echo "<script>
+                    alert('Error: This email address is already registered.');
+                    window.history.back();
+                </script>";
+            exit();
         }
         $checkEmail->close();
 
@@ -42,11 +76,18 @@
 
         // execution
         if ($stmt->execute()) {
-            echo "New student added successfully.";
+            echo "<script>
+                    alert('New student added successfully.');
+                    window.history.back();
+                </script>";
             $_SESSION['success'] = "Success";
             header("location: ../admin_dashboard.php");
             exit();
         } else {
+            echo "<script>
+                    alert('New student added unsuccessfully.');
+                    window.history.back();
+                </script>";
             $_SESSION['success'] = "Fail";
             echo "Error execution failed: " . $stmt->error;
 

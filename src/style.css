@@ -5,6 +5,31 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.react {
+    background-image: url('../assets/REACT.svg');
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 15px;
+    transition: 0.2s linear;
+    background-color: rgba(245, 222, 179, 0);
+
+}
+
+.react:hover {
+    background-image: url('../assets/REACT.svg');
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-color: rgba(188, 190, 190, 0.548);
+    border: none;
+    border-radius: 5px;
+    background-position: center;
+
+}
+
 .profile{
     display:grid;
     padding: 5px;
@@ -22,6 +47,12 @@ body {
     background-color: black;
     height:1px;
     width: 250px;
+}
+
+.logo  {
+    background-image: url('../assets/book.svg');
+    height: 70px;
+    width: 70px;
 }
 
 .message{
@@ -43,6 +74,21 @@ body {
     border-radius: 50%;
     padding: 1px;
     border: black 1px solid;
+    transition: 0.2s linear;
+}
+
+
+.pfp:hover {
+    height: 51px;
+    width: 51px;
+    background-image: url(../assets/user-default-pfp.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 50%;
+    padding: 1px;
+    background-color: rgba(65, 65, 65, 0.103);
+    border: rgb(65, 64, 64) 1px solid;
 
 }
 
@@ -109,6 +155,7 @@ p {
     border-radius: 5px;
     margin-top: 1px;
     width: 50%;
+    border-radius: 25px;
     align-items: center;
     text-align: center;
     cursor: pointer;
@@ -121,7 +168,7 @@ p {
     padding: 10px;
     background-color: black;
     border: solid, rgba(0, 0, 0, 0), 0px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 1px;
     width: 100%;
     align-items: center;
@@ -248,15 +295,23 @@ form{
     height: 150px;
     width: auto;
     color: white;
+    border-radius: 10px;
     transition: 0.2s linear;
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
 }
 
 .Top:hover {
     margin: 2px auto;
     background-color: black;
-    height: 200px;
+    height: 170px;
     width: auto;
     color: white;
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
+    place-items: center;
 }
 
 .btn-white {
@@ -313,7 +368,6 @@ form{
     padding:0.5rem;
     margin:50px auto;
     border-radius:10px;
-    
     align-items: center;
     text-align: center;
 }

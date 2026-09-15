@@ -21,9 +21,13 @@
     
     //execution
     $stmt->execute();
-    
-    echo "Deleted!";
+
+    echo "<script>
+            alert('Deleted');
+            window.history.back();
+        </script>";
     header("location: ../admin_dashboard.php");
+    exit();
 
 
 ?>

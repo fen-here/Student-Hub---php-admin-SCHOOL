@@ -23,7 +23,7 @@ if(isset($_SESSION['email'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student-Dashboard</title>
     <link rel="stylesheet" href="../../src/style.css">
 </head>
 <body>
@@ -120,7 +120,7 @@ if(isset($_SESSION['email'])){
                         echo "<form action='../src/reacts.php' method='POST' class='input-group'>"; 
                             // FIXED: Concatenated $row['id'] properly instead of nesting <?php tags
                             echo "<input type='hidden' name='id' value='" . htmlspecialchars($row['id']) . "'>"; 
-                            echo "<button type='submit' class='btn' id='react' name='react'>react</button>"; 
+                            echo "<button type='submit' class='react' id='react' name='react'></button>"; 
                             echo "<p>" . htmlspecialchars($row['reacts']) . "</p>"; 
                         echo "</form>"; 
                     echo "</div>"; 

@@ -14,10 +14,34 @@
         $message = $_POST['message'] ?? null; 
 
         //checking if data is present
-        if (empty($firstName)) { die("Error: First Name is missing or empty."); } 
-        if (empty($lastName)) { die("Error: Last Name is missing or empty."); } 
-        if (empty($grade)) { die("Error: Grade is missing or empty."); } 
-        if (empty($message)) { die("Error: Message is missing or empty."); } 
+        if (empty($firstName)) { 
+            echo "<script>
+                    alert('Error: First Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($lastName)) { 
+            echo "<script>
+                    alert('Error: Last Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($grade)) { 
+            echo "<script>
+                    alert('Error: Grade is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($message)) { 
+            echo "<script>
+                    alert('Error: Message is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
 
         // inserting data into database
         $stmt = $conn->prepare("INSERT INTO posts (firstName, lastName, date, grade, message) VALUES (?, ?, ?, ?, ?)"); 
@@ -26,11 +50,17 @@
         //execution
         if ($stmt->execute()) { 
             $stmt->close();
-            echo "Success";
+            echo "<script>
+                    alert('Success');
+                    window.history.back();
+                </script>";
             header("Location: ../admin_dashboard.php"); 
             exit();
         } else { 
-            echo "Fail";
+            echo "<script>
+                    alert('Fail');
+                    window.history.back();
+                </script>";
             echo "Error execution failed: " . $stmt->error;
         } 
         

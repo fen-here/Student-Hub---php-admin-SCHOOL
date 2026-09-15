@@ -16,10 +16,47 @@
 
         // checking Id exists andif necessary data is present
         if (empty($id)) { 
-            die("Error: Student ID is missing."); 
+            echo "<script>
+                    alert('Error: ID is missing.');
+                    window.history.back();
+                </script>";
+            exit();
         }
-        if (empty($firstName) || empty($lastName) || empty($email) || empty($age) || empty($grade)) { 
-            die("Error: Required fields (First Name, Last Name, Email, Age, Grade) cannot be empty."); 
+                //checking for if infromation is missing or empty
+        if (empty($firstName)) { 
+            echo "<script>
+                    alert('Error: First Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($lastName)) { 
+            echo "<script>
+                    alert('Error: Last Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($grade)) { 
+            echo "<script>
+                    alert('Error: Grade is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($email)) { 
+            echo "<script>
+                    alert('Error: Email is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($password)) { 
+            echo "<script>
+                    alert('Error: Password is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
         }
 
         // checks if a new password is present and to create passwordhas
@@ -41,12 +78,19 @@
 
         //execution
         if ($stmt->execute()) {
-            echo "Success";
+            echo "<script>
+                    alert('Success!');
+                    window.history.back();
+                </script>";
             header("Location: ../admin_dashboard.php");
             exit();
         } else {
-            echo "Fail";
+            echo "<script>
+                    alert('Fail!');
+                    window.history.back();
+                </script>";
             echo "Error execution failed: " . $stmt->error;
+            exit();
         }
 
         $stmt->close();

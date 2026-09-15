@@ -1,11 +1,11 @@
 <?php
 
-    //connection to data base
+    //connection to Database
     require __DIR__ . '/../../src/db.php';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        //getting data from Web page
+        // getting information from webpage
         $id        = $_POST['id'] ?? null;
         $firstName = $_POST['fName'] ?? null;
         $lastName  = $_POST['lName'] ?? null;
@@ -14,40 +14,83 @@
         $email     = $_POST['email'] ?? null;
         $password  = $_POST['password'] ?? null;
 
-        // Checking ID
+        // checking Id exists andif necessary data is present
         if (empty($id)) { 
-            die("Error: Student ID is missing."); 
+            echo "<script>
+                    alert('Error: ID is missing.');
+                    window.history.back();
+                </script>";
+            exit();
         }
-        if (empty($firstName) || empty($lastName) || empty($email) || empty($age) || empty($grade)) { 
-            die("Error: Required fields (First Name, Last Name, Email, Age, Grade) cannot be empty."); 
+                //checking for if infromation is missing or empty
+        if (empty($firstName)) { 
+            echo "<script>
+                    alert('Error: First Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($lastName)) { 
+            echo "<script>
+                    alert('Error: Last Name is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($grade)) { 
+            echo "<script>
+                    alert('Error: Grade is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($email)) { 
+            echo "<script>
+                    alert('Error: Email is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
+        }
+        if (empty($password)) { 
+            echo "<script>
+                    alert('Error: Password is missing or empty.');
+                    window.history.back();
+                </script>";
+            exit();
         }
 
-        // checks if a new password is present and to create new password hash
+        // checks if a new password is present and to create passwordhas
         if (!empty($password)) {
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
             
             //updates the database
             $stmt = $conn->prepare("UPDATE teachers SET firstName = ?, lastName = ?, age = ?, grade = ?, email = ?, password = ? WHERE id = ?");
-        
-            //replaces place holrders with the new information
+
+            //replaces place holders with the new information
             $stmt->bind_param("ssssssi", $firstName, $lastName, $age, $grade, $email, $passwordHash, $id);
         } else {
-
             //updates the database
             $stmt = $conn->prepare("UPDATE teachers SET firstName = ?, lastName = ?, age = ?, grade = ?, email = ? WHERE id = ?");
-
-            //replaces place holder information with new information.
+            
+            //replaces place holders with the new information
             $stmt->bind_param("sssssi", $firstName, $lastName, $age, $grade, $email, $id);
         }
 
-        // execution
+        //execution
         if ($stmt->execute()) {
-            echo "Success";
+            echo "<script>
+                    alert('Success!');
+                    window.history.back();
+                </script>";
             header("Location: ../admin_dashboard.php");
             exit();
         } else {
-            echo "Fail";
+            echo "<script>
+                    alert('Fail!');
+                    window.history.back();
+                </script>";
             echo "Error execution failed: " . $stmt->error;
+            exit();
         }
 
         $stmt->close();
