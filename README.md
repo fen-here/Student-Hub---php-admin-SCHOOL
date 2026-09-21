@@ -14,7 +14,7 @@ This project is completely open-source and allows people to learn and build on-t
 
 ## Requirements:
 In order to run or test this project a user need an appache webserver for PHP and SQL `db`. I recommend **XAMPP** as it was the programmed used to emulate a webserver for the development of the project. This allows the user to connect the provided database in order to test and run the web application.
-![Alt Text](documentation-photos/"xampp running.png")
+![Alt Text](documentation-photos/xampp-running.png)
 
 The SQL table is called 'users' and contains the students, teachers, and posts demo table.
 The actual `Student-Hub-School` file lays in the `htdocs` of XAMPP. This should require minimal set-up once the source code is downloaded.
