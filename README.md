@@ -22,15 +22,25 @@ The actual `Student-Hub-School` file lays in the `htdocs` of XAMPP. This should 
 ## Accessing:
 once set up correctly and XAMPP's appache and SQL server is running you can go in a web-browser the the address: [`localhost/Student-Hub-School/`]
 
-### Student Log-In:
-**Email**: test.user@example.com
-**Password**: 123456
-
-### Teacher Log-In:
-**Email**: test.teacher@example.com
-**Password**: 123456S
+If you would like to edit, delete, and add to the database you can do so by going to the web-address: [`localhost/`]
+#### Log-In Details:
+|**User Type**|**Email**|**Password**|
+|Student|test.user@example.com|123456|
+|teacher|test.teacher@example.com|123456|
 
 # Website Breakdown:
+## Project Layout:
+`
+Student-Hub-School
+|-> src
+|-> assets
+|-> admin
+|  |-> src
+|-> user
+    |-> src
+    |-> student
+
+`
 
 ## DB connection:
 
@@ -74,6 +84,8 @@ Displays the information
     }
 ?>
 ```
+
+The webpages also displayed the information of the user logged in.
 
 ## Website pages explained:
 Most of the website comprises into 6 webpages. Inorder to keep this data to a minimum a js script with a page swap function was created. I used two forms.
@@ -123,5 +135,4 @@ const Btn3 = document.getElementById('btn3');
 if (Btn1) Btn1.addEventListener('click', () => switchView(element1, Panels));
 if (Btn2) Btn2.addEventListener('click', () => switchView(element2, Panels));
 if (Btn3) Btn3.addEventListener('click', () => switchView(element3, Panels));
-
 ```
