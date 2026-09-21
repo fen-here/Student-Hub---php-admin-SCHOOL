@@ -67,9 +67,9 @@
                 <form method="post" name="post_form" action="src/create_post.php" onsubmit="return Global_posts_valid()">
                     <i>Post Details</i>
                     <div class="input-group">
-                        <input type="text" pattern="[A-Za-z\s]+" name="fname" id="fname" placeholder="First Name" required>
+                        <input type="text" pattern="[A-Za-z\s]+" name="fname" id="fname" placeholder="First Name" value="<?php echo htmlspecialchars($firstName)?>" readonly>
                         <label for="fname">First Name</label>
-                        <input type="text" pattern="[A-Za-z\s]+" name="lname" id="lName" placeholder="Last Name" required>
+                        <input type="text" pattern="[A-Za-z\s]+" name="lname" id="lName" placeholder="Last Name" value="<?php echo htmlspecialchars($lastName)?>" readonly>
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="input-group">
@@ -239,7 +239,7 @@
 
         <!-- //teacher data table -->
         <div class="teacher-table" id="teacher-table" style="display: none;">
-            <h1 class="category">teachers</h1>
+            <h1 class="category">Teachers</h1>
             <div class="actions">
                 <nav>
                     <a href="#" id="add_teacher_btn" class="btn">Add Teacher</a>
@@ -358,6 +358,6 @@
             </table>
         </div>
     </section>
-    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/main.js" defer></script>
 </body>
 </html>

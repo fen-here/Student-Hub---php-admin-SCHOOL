@@ -82,7 +82,7 @@ function Delete_teacher_valid(){
 // Page swap function
 function switchView(activeElement, allElements) {
     allElements.forEach(el => {
-        if (el) el.style.display = el === activeElement ? "block" : "none";
+        if (el) el.style.display = el === activeElement ? "grid" : "none";
     });
 }
 
@@ -130,5 +130,3 @@ const deleteTeacherBtn = document.getElementById('delete_teacher_btn');
 if (addTeacherBtn) addTeacherBtn.addEventListener('click', () => switchView(add_teacher, teacherPanels));
 if (editTeacherBtn) editTeacherBtn.addEventListener('click', () => switchView(edit_teacher, teacherPanels));
 if (deleteTeacherBtn) deleteTeacherBtn.addEventListener('click', () => switchView(delete_teacher, teacherPanels));
-
-// Global Posts

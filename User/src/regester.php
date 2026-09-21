@@ -3,6 +3,7 @@
     //connection to database
     include __DIR__ . '/../../src/db.php';
 
+    session_start();
     if (isset($_POST['signIn'])) {
 
         // getting infromation from login page
@@ -26,9 +27,12 @@
             //verifiying password
             if (password_verify($password, $row['password'])) {
                 
+                session_regenerate_id(true);
+                $_SESSION['student_logged_in'] = true;
+                
                 // startes login session
                 if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
+                    
                 }
                 
                 // moves to next page
@@ -38,12 +42,22 @@
                 
             // gives and error
             } else {
-                echo "Not Found, Incorrect Email or Password";
+                echo "<script>
+                    alert('Error: Incorrect Email or Password.');
+                    window.history.back();
+                </script>";
+                exit();
             }
         } else {
-            echo "Not Found, Incorrect Email or Password";
+            echo "<script>
+                    alert('Error: Incorrect Email or Password.');
+                    window.history.back();
+                </script>";
+            exit();
         }
         
         $stmt->close();
     }
+?>
+
 ?>

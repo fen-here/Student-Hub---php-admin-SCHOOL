@@ -43,13 +43,17 @@
                 
             // gives and error
             } else {
-                echo "Not Found, Incorrect Email or Password";
-                header("Location: ../teacher_login_page.php?error=invalid_credentials");
+                echo "<script>
+                    alert('Error: Incorrect Email or Password.');
+                    window.history.back();
+                </script>";
                 exit();
             }
         } else {
-            echo "Not Found, Incorrect Email or Password";
-            header("Location: ../teacher_login_page.php?error=invalid_credentials");
+            echo "<script>
+                    alert('Error: Incorrect Email or Password.');
+                    window.history.back();
+                </script>";
             exit();
         }
         

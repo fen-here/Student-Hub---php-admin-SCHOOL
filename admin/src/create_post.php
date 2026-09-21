@@ -3,6 +3,7 @@
     //connection to database
     require __DIR__ . '/../../src/db.php'; 
 
+    
     // Data collection
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
