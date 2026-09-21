@@ -86,8 +86,8 @@ Displays the information
 ?>
 ```
 
+[Profile](documentation-photos/pfp.png)
 The webpages also displayed the information of the user logged in.
-![Profile](documentation-photos/pfp.png)
 ## Website pages explained:
 Most of the website comprises into 6 webpages. Inorder to keep this data to a minimum a js script with a page swap function was created. I used two forms.
 
