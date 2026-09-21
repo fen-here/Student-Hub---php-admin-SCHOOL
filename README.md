@@ -31,17 +31,49 @@ If you would like to edit, delete, and add to the database you can do so by goin
 
 # Website Breakdown:
 ## Project Layout:
-`
-Student-Hub-School
-|-> src
-|-> assets
-|-> admin
-|  |-> src
-|-> user
-    |-> src
-    |-> student
-
-`
+```text
+Student-Hub-School/
+├──  admin/
+│   └──  src/
+│       ├── add_student.php
+│       ├── add_teacher.php
+│       ├── create_post.php
+│       ├── delete_student.php
+│       ├── delete_teacher.php
+│       ├── edit_student.php
+│       ├── edit_teacher.php
+│       ├── login.js
+│       ├── login.php
+│       ├── logout.php
+│       ├── main.js
+│       ├── admin_dashboard.php
+│       └── Teacher_login_page.php
+├──  assets/
+│   ├── book.af
+│   ├── book.svg
+│   ├── REACT.svg
+│   └── user-default-pfp.svg
+├──  documentation-photos/
+│   ├── Screenshot 2026-09-21 193637.png
+│   └── xampp running.png
+├──  src/
+│   ├── db.html
+│   ├── db.php
+│   └── style.css
+├──  User/
+│   ├──  src/
+│   │   ├── dashboard.js
+│   │   ├── logout.php
+│   │   ├── main.js
+│   │   ├── reacts.php
+│   │   └── regester.php
+│   └──  student/
+│       ├── dashboard.php
+│       └── login.php
+├── index.html
+├── main.js
+└── README.md
+```
 
 ## DB connection:
 
@@ -86,7 +118,8 @@ Displays the information
 ?>
 ```
 
-[Profile](documentation-photos/pfp.png)
+![Profile](documentation-photos/pfp.png)
+<br></br>
 The webpages also displayed the information of the user logged in.
 ## Website pages explained:
 Most of the website comprises into 6 webpages. Inorder to keep this data to a minimum a js script with a page swap function was created. I used two forms.
