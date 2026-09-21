@@ -21,10 +21,11 @@ The actual `Student-Hub-School` file lays in the `htdocs` of XAMPP. This should 
 
 ## Accessing:
 once set up correctly and XAMPP's appache and SQL server is running you can go in a web-browser the the address: [`localhost/Student-Hub-School/`]
-
+s
 If you would like to edit, delete, and add to the database you can do so by going to the web-address: [`localhost/`]
 #### Log-In Details:
 |**User Type**|**Email**|**Password**|
+|:------------|:-------:|-----------:|
 |Student|test.user@example.com|123456|
 |teacher|test.teacher@example.com|123456|
 
