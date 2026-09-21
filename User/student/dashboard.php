@@ -2,20 +2,6 @@
 session_start(); 
 include __DIR__ . '/../../src/db.php';
 
-if(isset($_SESSION['email'])){ 
-    $email = $_SESSION['email']; 
-    
-    $email = mysqli_real_escape_string($conn, $email); 
-    $user_data = mysqli_query($conn, "SELECT * FROM `students` WHERE email='$email'"); 
-
-    while($row = mysqli_fetch_array($user_data)){ 
-        $firstName = $row['firstName'];
-        $lastName = $row['lastName'] ;
-        $grade = $row['grade'];
-        $age = $row['age'];
-        $id = $row['id'];
-    }
-} 
 ?>
 
 <!DOCTYPE html>
@@ -43,14 +29,14 @@ if(isset($_SESSION['email'])){
         <div class="profile">
             <div class="person">
                 <div class="pfp"></div>
-                <h1 class="fname"><?php  echo $firstName?></h1>
-                <h1 class="lname"><?php  echo $lastName?></h1>
+                <h1 class="fname"><?php  echo $SfirstName?></h1>
+                <h1 class="lname"><?php  echo $SlastName?></h1>
             </div>
             <div class="divide"></div>
             <div class="person">
-                <p class="grade">Grade: <?php echo $grade?></p>
-                <p class="age"> Age: <?php echo $age?></p>
-                <p class="student-id"> ID: <?php echo $id?></p>
+                <p class="grade">Grade: <?php echo $Sgrade?></p>
+                <p class="age"> Age: <?php echo $Sage?></p>
+                <p class="student-id"> ID: <?php echo $Sid?></p>
             </div>
         </div>
 

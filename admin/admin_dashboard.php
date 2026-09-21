@@ -5,24 +5,9 @@
     session_start();
     include '../src/db.php';
     
-    
-    if(isset($_SESSION['email'])) {
-        $email = $_SESSION["email"];
 
-        $email = mysqli_real_escape_string($conn, $email);
-        $user_data = mysqli_query($conn, "SELECT * FROM `teachers` WHERE email='$email'");
-        
-        while($row = mysqli_fetch_array($user_data)){ 
-            $firstName = $row['firstName'];
-            $lastName = $row['lastName'] ;
-            $grade = $row['grade'];
-            $age = $row['age'];
-            $id = $row['id'];
-        }
-    }    
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,20 +30,19 @@
             <a href="#" class="btn" id="global_posts_btn">Global Posts</a>
             <a href="src/logout.php" class="btn logout" id="logout">log-out</a>
         </nav>
-        
     </header>
     <!-- // main content  -->
     <section class="container-list">
         <div class="profile">
             <div class="person">
                 <div class="pfp"></div>
-                <h1 class="fname"><?php echo $firstName?></h1>
-                <h1 class="lname"><?php echo $lastName?></h1>
+                <h1 class="fname"><?php echo $TfirstName?></h1>
+                <h1 class="lname"><?php echo $TlastName?></h1>
             </div>
             <div class="divide"></div>
             <div class="person">
-                <p class="grade">Grade: <?php echo $grade?></p>
-                <p class="age"> Age: <?php echo $age?></p>
+                <p class="grade">Grade: <?php echo $Tgrade?></p>
+                <p class="age"> Age: <?php echo $Tage?></p>
             </div>
         </div>
         <!-- //global posts -->
