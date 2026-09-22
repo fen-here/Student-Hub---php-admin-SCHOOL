@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2026 at 12:36 AM
+-- Generation Time: Sep 22, 2026 at 03:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `firstName`, `lastName`, `date`, `grade`, `message`, `reacts`) VALUES
-(3, 'test', 'teacher', '2026-09-21', '10', 'Hello. This is a test message...', 4),
-(4, 'test', 'teacher', '2026-09-21', '9', 'School Esports Team', 5);
+(3, 'test', 'teacher', '2026-09-21', '10', 'Hello. This is a test message...', 4);
 
 -- --------------------------------------------------------
 
@@ -66,10 +65,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `firstName`, `lastName`, `age`, `grade`, `email`, `password`) VALUES
-(2, 'test', 'user', 16, 10, 'test.user@example.com', '$2y$10$pZ9aBitnrjLQaZSKUEyStuOJLdNlhXsOR6O6JJ2fohVmUifW8WFbm'),
-(22, 'Maddie', 'Smith', 16, 10, 'maddie.smith@school.com', '$2y$10$tYxiPBvtMmtJjVObfiv0u.xMwE/g.AwRcmJIUqjAEs5tIoGh.zrYO'),
-(23, 'Justin', 'Alpha', 12, 6, 'justin.alpha@school.com', '$2y$10$URajCZUBhJcvIhSZYE2Dhuo0Tt0VvzmXrEElMFyr/t3OttpZjtiQu'),
-(24, 'andrew', 'Honeyborne', 15, 9, 'adrew.honeyborne@school.com', '$2y$10$nkJz7VyQYZGV0XDGeQ/dWeASTTtE0upEO9jWdZjwx5FPPl6pL02ES');
+(2, 'test', 'user', 16, 10, 'test.user@example.com', '$2y$10$pZ9aBitnrjLQaZSKUEyStuOJLdNlhXsOR6O6JJ2fohVmUifW8WFbm');
 
 -- --------------------------------------------------------
 
@@ -92,9 +88,7 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `firstName`, `lastName`, `age`, `grade`, `email`, `password`) VALUES
-(1, 'test', 'teacher', 25, 10, 'test.teacher@example.com', '$2y$10$nQrzRTq.wpKW5xiAoASCgeaWBxmLll3Ak0aBkBLHWJ1qt7.EO6Tye'),
-(18, 'Angus', 'Park', 23, 7, 'angus.park@school.edu.com', '$2y$10$uRb2PZSxTCJ.wLUx/U0MnuVJkJUIjvi0re5CuKySQbNPOPyU1ibb6'),
-(19, 'Ava ', 'Honey', 34, 5, 'ava.honey@school.edu.com', '$2y$10$BLzR3pKvKC.xJw2IBK8Cq.LxuLcAHwXCYosQ.hzSJ/uSSjQ/Nx2Ea');
+(1, 'test', 'teacher', 25, 10, 'test.teacher@example.com', '$2y$10$nQrzRTq.wpKW5xiAoASCgeaWBxmLll3Ak0aBkBLHWJ1qt7.EO6Tye');
 
 --
 -- Indexes for dumped tables
