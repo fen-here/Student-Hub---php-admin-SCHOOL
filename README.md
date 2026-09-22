@@ -1,4 +1,4 @@
-# Student-Hub---php-admin-SCHOOL
+# Student-Hub-School-Project
 ---
 Student-Hub is a school project created around the idea of a human management platform for school systems. The system has the base of a few systems.
 - Global Posts
